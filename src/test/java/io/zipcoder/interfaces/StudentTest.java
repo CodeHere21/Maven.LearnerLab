@@ -33,7 +33,7 @@ public class StudentTest {
         double numberOfHours = 80;
 
         //When
-        double expectedTotalTime = 85;
+        double expectedTotalTime = 80;
         double actualTotalTime = studentZero.learn(numberOfHours);
 
         //Then

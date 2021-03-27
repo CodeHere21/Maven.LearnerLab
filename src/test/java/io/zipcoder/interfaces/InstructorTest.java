@@ -8,7 +8,7 @@ public class InstructorTest {
     @Test
     public void testImplementation(){
         //Given
-        Instructor instructorZero = new Instructor(101,"Lena");
+        Instructor instructorZero = new Instructor(100,"Nobles");
 
         //When
 
@@ -19,7 +19,7 @@ public class InstructorTest {
     @Test
     public void testInheritance(){
         //Given
-        Instructor instructor = new Instructor(101,"Lena");
+        Instructor instructor = new Instructor(100,"Nobles");
 
         //When
 
@@ -30,13 +30,12 @@ public class InstructorTest {
     @Test
     public void testTeach(){
         //Given
-        Instructor instructor = new Instructor(101,"Lena");
+        Instructor instructor = new Instructor(100,"Nobles");
         Learner lena = new Student(101, "Lena");
         double numberOfHours = 80;
-        double totalStudyTime = 5;
 
         //When
-        double expected = 85;
+        double expected = 80;
         double actual = instructor.teach(lena,80);
 
         //Then
@@ -46,21 +45,20 @@ public class InstructorTest {
     @Test
     public void testLecture() {
         //Given
-        Instructor instructor = new Instructor(101,"Lena");
+        Instructor instructor = new Instructor(100,"Nobles");
         Learner lena = new Student(101, "Lena");
         Learner justin = new Student(102, "Justin");
         Learner monali = new Student(103, "Monali");
         Learner ashley = new Student(104, "Ashley");
         Learner[] learners = new Learner[]{lena, justin,monali, ashley};
         double numberOfHours = 400;
-        double totalStudyTime = 5; //just to remember that totalStudyTime used in learn()
 
         //When
         learners[0]=lena;
         learners[1]=justin;
         learners[2]=monali;
         learners[3]=ashley;
-        double expected = 105;
+        double expected = 100;
         double actual = instructor.lecture(learners,numberOfHours);
         System.out.println(actual);
 

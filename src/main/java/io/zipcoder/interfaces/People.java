@@ -7,32 +7,31 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class People {
-    List<Person> personList = new ArrayList<Person>();
+public abstract class People<S extends Person> implements Iterable<S> {
+    List<S> personList = new ArrayList<S>();
 
-    public void addPerson(Person person){
+    public void addPerson(S person){
         personList.add(person);
     }
-
-    public Person findById (long id){
-        for(Person person : personList){
+    public S findById (long id){
+        for(S person : personList){
             if(person.getId()==id) {
                 return person;
             }
         }
         return null;
     }
-    public Boolean contains (Person person){
+    public Boolean contains (S person){
         if (personList.contains(person)){
             return true;
         }
         return false;
     }
-    public void remove (Person person){
+    public void remove (S person){
         personList.remove(person);
     }
     public void remove(long id){
-        for(Person person:personList){
+        for(S person:personList){
             if(person.getId()==id){
                 personList.remove(person);
             }
@@ -44,8 +43,9 @@ public class People {
     public int count(){
        return personList.size();
     }
-    public Object[] toArray(){
-        Object[] result=personList.toArray();
-        return result;
+    public abstract  S[] toArray();
+
+    public Iterator<S> iterator() {
+        return personList.iterator();
     }
 }
