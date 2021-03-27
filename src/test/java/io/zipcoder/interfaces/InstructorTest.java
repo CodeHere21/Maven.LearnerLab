@@ -32,9 +32,15 @@ public class InstructorTest {
         //Given
         Instructor instructor = new Instructor(101,"Lena");
         Learner lena = new Student(101, "Lena");
+        double numberOfHours = 80;
+        double totalStudyTime = 5;
 
         //When
+        double expected = 85;
+        double actual = instructor.teach(lena,80);
 
+        //Then
+        Assert.assertEquals(expected,actual,0.01);
     }
 
     @Test
@@ -58,12 +64,7 @@ public class InstructorTest {
         double actual = instructor.lecture(learners,numberOfHours);
         System.out.println(actual);
 
-
         //Then
         Assert.assertEquals(expected, actual, 0.001);
-
-
-
-
     }
 }
